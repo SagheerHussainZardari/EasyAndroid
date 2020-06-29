@@ -7,38 +7,22 @@
     tools:context=".MainActivity">
 
 
-    <LinearLayout
-        android:id="@+id/layout"
+    <EditText
+        android:id="@+id/et_Email"
         android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:background="#000"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:hint="Enter Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
-    </LinearLayout>
-
+    <Button
+        android:id="@+id/btnButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
