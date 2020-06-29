@@ -1,0 +1,3 @@
+include ':easyandroid'
+include ':app'
+rootProject.name = "SHZ"
