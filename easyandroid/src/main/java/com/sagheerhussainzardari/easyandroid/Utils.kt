@@ -1,8 +1,10 @@
 package com.sagheerhussainzardari.easyandroid
 
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.net.Uri
 import android.util.Patterns
 import android.view.View
 import android.widget.EditText
@@ -127,4 +129,11 @@ fun isConnectedToMobile(context: Context): Boolean {
         }
     }
     return false
+}
+
+//Open Link In The Browser
+fun openLinkInBrowser(url: String, context: Context) {
+    val intent = Intent(Intent.ACTION_VIEW)
+    intent.data = Uri.parse(url)
+    context.startActivity(intent)
 }
