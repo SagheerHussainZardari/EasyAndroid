@@ -9,6 +9,7 @@ import android.util.Patterns
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -83,6 +84,27 @@ fun isPhoneValid(phone: EditText): Boolean {
         return false
     }
 }
+
+//login fucntion for firebaseAuth
+fun login(et_email: EditText, et_password: EditText, mAuth: FirebaseAuth, callBack: AuthCallBack) {
+    if (isEmailValid(et_email)) {
+        if (et_password.text.toString().isNotEmpty()) {
+            mAuth.signInWithEmailAndPassword(et_email.text.toString(), et_password.text.toString())
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        callBack.onLoginSuccess()
+                    } else {
+                        callBack.onLoginFailed()
+                    }
+                }
+        } else {
+            et_password.error = "Password Must Not Be Empty"
+            et_password.requestFocus()
+            callBack.onLoginFailed()
+        }
+    }
+}
+
 
 //returns current date in string format "29-06-2020"
 fun getCurrentDate(): String {
