@@ -8,11 +8,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (isConnectedToMobile(this)) {
-            showToastShort("Connected to Wifi")
-        } else {
-            showToastShort("NotConnected")
-        }
-
     }
 }
