@@ -85,7 +85,7 @@ fun isPhoneValid(phone: EditText): Boolean {
     }
 }
 
-//login fucntion for firebaseAuth
+//login fucntion for firebaseAuth Hope That Will Be There Now
 fun login(et_email: EditText, et_password: EditText, mAuth: FirebaseAuth, callBack: AuthCallBack) {
     if (isEmailValid(et_email)) {
         if (et_password.text.toString().isNotEmpty()) {
