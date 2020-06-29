@@ -49,6 +49,24 @@ fun isEmailValid(email: EditText): Boolean {
     }
 }
 
+
+//check is Password Is Greaterthan or equal to given length
+fun isPasswordValid(password: EditText, length: Int): Boolean {
+    if (password.text.toString().isEmpty()) {
+        password.error = "Password Is Empty"
+        password.requestFocus()
+        return false
+    } else {
+
+        if (password.text.toString().length >= length) {
+            return true
+        } else {
+            password.error = "Password Must Be $length Digits Or Long!!!"
+            return false
+        }
+    }
+}
+
 //only check if this is string is valid password or not
 fun isPhoneValid(phone: String): Boolean {
     return Patterns.PHONE.matcher(phone).matches()
@@ -137,3 +155,4 @@ fun openLinkInBrowser(url: String, context: Context) {
     intent.data = Uri.parse(url)
     context.startActivity(intent)
 }
+
