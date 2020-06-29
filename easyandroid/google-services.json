@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "382417024038",
+    "firebase_url": "https://calculater-9fc5a.firebaseio.com",
+    "project_id": "calculater-9fc5a",
+    "storage_bucket": "calculater-9fc5a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382417024038:android:97b7b9681514076abf22e7",
+        "android_client_info": {
+          "package_name": "com.sagheerhussainzardari.calculater"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382417024038-kq66hhdr6hjg55m5nbgpnelmk16g4hq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3aTT3sIbPBSPpio2y_5ZPOHRXLzXeXos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382417024038-kq66hhdr6hjg55m5nbgpnelmk16g4hq3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382417024038:android:3acd8447a90fa68ebf22e7",
+        "android_client_info": {
+          "package_name": "com.sagheerhussainzardari.easyandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382417024038-kq66hhdr6hjg55m5nbgpnelmk16g4hq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3aTT3sIbPBSPpio2y_5ZPOHRXLzXeXos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382417024038-kq66hhdr6hjg55m5nbgpnelmk16g4hq3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
