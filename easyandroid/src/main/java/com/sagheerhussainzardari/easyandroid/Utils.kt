@@ -76,7 +76,7 @@ fun isPhoneValid(phone: String): Boolean {
 //check the editText for valid phone and return true other wise shows error msg and returns false
 fun isPhoneValid(phone: EditText): Boolean {
 
-    if (Patterns.EMAIL_ADDRESS.matcher(phone.text.toString()).matches()) {
+    if (Patterns.PHONE.matcher(phone.text.toString()).matches()) {
         return true
     } else {
         phone.error = "Enter Valid Phone Number!!"
@@ -85,7 +85,7 @@ fun isPhoneValid(phone: EditText): Boolean {
     }
 }
 
-//login fucntion for firebaseAuth Hope That Will Be There Now
+//login fucntion for firebaseAuth With Auto Validations
 fun loginWithValidation(
     et_email: EditText,
     et_password: EditText,
@@ -112,27 +112,38 @@ fun loginWithValidation(
     }
 }
 
+
 fun login(email: String, password: String, mAuth: FirebaseAuth, callBack: AuthCallBack) {
-    mAuth.signInWithEmailAndPassword(email, password)
-        .addOnCompleteListener {
-            if (it.isSuccessful) {
-                callBack.onLoginSuccess()
-            } else {
-                callBack.onLoginFailed(it.exception!!.localizedMessage)
+
+    if (email.isNotEmpty() && password.isNotEmpty()) {
+        mAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    callBack.onLoginSuccess()
+                } else {
+                    callBack.onLoginFailed(it.exception!!.localizedMessage)
+                }
             }
-        }
+
+    } else {
+        callBack.onLoginFailed("Email And Password Must Not Be Empty!!!")
+    }
 }
 
 
 fun signUp(email: String, password: String, mAuth: FirebaseAuth, callBack: AuthCallBack) {
-    mAuth.createUserWithEmailAndPassword(email, password)
-        .addOnCompleteListener {
-            if (it.isSuccessful) {
-                callBack.onSignUpSuccess()
-            } else {
-                callBack.onSignUpFailed(it.exception!!.localizedMessage)
+    if (email.isNotEmpty() && password.isNotEmpty()) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    callBack.onSignUpSuccess()
+                } else {
+                    callBack.onSignUpFailed(it.exception!!.localizedMessage)
+                }
             }
-        }
+    } else {
+        callBack.onLoginFailed("Email And Password Must Not Be Empty!!!")
+    }
 }
 
 
