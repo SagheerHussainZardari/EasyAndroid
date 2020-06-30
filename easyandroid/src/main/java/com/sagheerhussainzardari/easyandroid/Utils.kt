@@ -10,6 +10,12 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
+import com.sagheerhussainzardari.easyandroid.CallBacks.AuthCallBack
+import com.sagheerhussainzardari.easyandroid.CallBacks.RealtimeDatabaseCallBack
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -113,6 +119,7 @@ fun loginWithValidation(
 }
 
 
+//Login With String Email And Password With Not Validation
 fun login(email: String, password: String, mAuth: FirebaseAuth, callBack: AuthCallBack) {
 
     if (email.isNotEmpty() && password.isNotEmpty()) {
@@ -130,7 +137,7 @@ fun login(email: String, password: String, mAuth: FirebaseAuth, callBack: AuthCa
     }
 }
 
-
+//SignUp With String Email And Password With Not Validation
 fun signUp(email: String, password: String, mAuth: FirebaseAuth, callBack: AuthCallBack) {
     if (email.isNotEmpty() && password.isNotEmpty()) {
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -219,3 +226,33 @@ fun openLinkInBrowser(url: String, context: Context) {
     context.startActivity(intent)
 }
 
+//set Data In Realtime Database
+fun setDataInFirebaseRealtimeDatabase(
+    path: DatabaseReference,
+    value: String,
+    callBack: RealtimeDatabaseCallBack
+) {
+
+    path.setValue(value).addOnCompleteListener {
+        if (it.isSuccessful)
+            callBack.onDataStoredSuccess()
+        else
+            callBack.onDataStoredFailure(it.exception!!.localizedMessage)
+
+    }
+
+}
+
+//get Data From Realtime Database
+fun getDataFromFirebaseRealtimemDatabase(
+    path: DatabaseReference,
+    callBack: RealtimeDatabaseCallBack
+) {
+    path.addListenerForSingleValueEvent(object : ValueEventListener {
+        override fun onCancelled(error: DatabaseError) {}
+
+        override fun onDataChange(snapshot: DataSnapshot) {
+            callBack.onDataGetSuccess(snapshot)
+        }
+    })
+}

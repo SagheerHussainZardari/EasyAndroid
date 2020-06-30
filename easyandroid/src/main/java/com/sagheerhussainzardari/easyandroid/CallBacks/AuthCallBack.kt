@@ -1,4 +1,4 @@
-package com.sagheerhussainzardari.easyandroid
+package com.sagheerhussainzardari.easyandroid.CallBacks
 
 interface AuthCallBack {
 
