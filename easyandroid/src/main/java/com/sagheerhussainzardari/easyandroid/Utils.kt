@@ -86,7 +86,12 @@ fun isPhoneValid(phone: EditText): Boolean {
 }
 
 //login fucntion for firebaseAuth Hope That Will Be There Now
-fun login(et_email: EditText, et_password: EditText, mAuth: FirebaseAuth, callBack: AuthCallBack) {
+fun loginWithValidation(
+    et_email: EditText,
+    et_password: EditText,
+    mAuth: FirebaseAuth,
+    callBack: AuthCallBack
+) {
     if (isEmailValid(et_email)) {
         if (et_password.text.toString().isNotEmpty()) {
             mAuth.signInWithEmailAndPassword(et_email.text.toString(), et_password.text.toString())
@@ -94,15 +99,40 @@ fun login(et_email: EditText, et_password: EditText, mAuth: FirebaseAuth, callBa
                     if (it.isSuccessful) {
                         callBack.onLoginSuccess()
                     } else {
-                        callBack.onLoginFailed()
+                        callBack.onLoginFailed(it.exception!!.localizedMessage)
                     }
                 }
         } else {
             et_password.error = "Password Must Not Be Empty"
             et_password.requestFocus()
-            callBack.onLoginFailed()
+            callBack.onLoginFailed("Password Is Empty!!!")
         }
+    } else {
+        callBack.onLoginFailed("There Is Problem With Email Address!!!")
     }
+}
+
+fun login(email: String, password: String, mAuth: FirebaseAuth, callBack: AuthCallBack) {
+    mAuth.signInWithEmailAndPassword(email, password)
+        .addOnCompleteListener {
+            if (it.isSuccessful) {
+                callBack.onLoginSuccess()
+            } else {
+                callBack.onLoginFailed(it.exception!!.localizedMessage)
+            }
+        }
+}
+
+
+fun signUp(email: String, password: String, mAuth: FirebaseAuth, callBack: AuthCallBack) {
+    mAuth.createUserWithEmailAndPassword(email, password)
+        .addOnCompleteListener {
+            if (it.isSuccessful) {
+                callBack.onSignUpSuccess()
+            } else {
+                callBack.onSignUpFailed(it.exception!!.localizedMessage)
+            }
+        }
 }
 
 
