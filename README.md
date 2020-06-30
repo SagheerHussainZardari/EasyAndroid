@@ -13,16 +13,13 @@ STEP 1 = OPEN PROJECT LEVEL Build.gradle File
             maven { url 'https://jitpack.io' }
           }
         }
-        
 STEP 2 = OPEN APP LEVEL Build.gradle File
-  add this to dependencies section
-  
-  
-  dependencies {
-      ...
-      ...
-      //add this line here in dependencies
-      implementation 'com.github.SagheerHussainZardari:EasyAndroid:2.0.3'
-  }
+
+        dependencies {
+            ...
+            ...
+            //add this line here in dependencies
+            implementation 'com.github.SagheerHussainZardari:EasyAndroid:2.0.3'
+        }
   
  
