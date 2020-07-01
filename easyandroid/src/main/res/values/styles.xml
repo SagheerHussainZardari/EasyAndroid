@@ -2,7 +2,7 @@
 <resources>
 
 
-    <style name="basic_edittext">
+    <style name="style_edittext">
 
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">56dp</item>
@@ -15,6 +15,20 @@
         <item name="android:paddingRight">12dp</item>
         <item name="android:layout_marginTop">8dp</item>
 
+    </style>
+
+    <style name="style_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">64dp</item>
+        <item name="android:layout_marginRight">64dp</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:padding">8dp</item>
     </style>
 
 </resources>
