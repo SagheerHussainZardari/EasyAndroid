@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
-    tools:ignore="MissingDefaultResource">
+    android:background="#fff">
 
 
     <ScrollView
@@ -17,14 +15,14 @@
             android:layout_gravity="center"
             android:orientation="vertical">
 
+
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="150dp"
                 android:layout_marginLeft="32dp"
                 android:layout_marginRight="32dp"
                 android:src="@drawable/ic_email"
                 android:tint="@color/colorPrimary" />
-
 
             <EditText
                 style="@style/style_edittext"
@@ -35,30 +33,37 @@
 
             <EditText
                 style="@style/style_edittext"
-                android:drawableStart="@drawable/ic_password"
+                android:drawableStart="@drawable/ic_email"
                 android:drawablePadding="8dp"
                 android:drawableTint="@color/colorPrimary"
-                android:hint="Password" />
+                android:hint="Email" />
 
-            <TextView
-                android:id="@+id/tv_ForgotPasswordLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="48dp"
-                android:layout_marginTop="4dp"
-                android:text="Forgot Password?"
-                android:textColor="@color/colorPrimary" />
+            <EditText
+                style="@style/style_edittext"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="8dp"
+                android:drawableTint="@color/colorPrimary"
+                android:hint="Email" />
+
+            <EditText
+                style="@style/style_edittext"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="8dp"
+                android:drawableTint="@color/colorPrimary"
+                android:hint="Email" />
+
+            <EditText
+                style="@style/style_edittext"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="8dp"
+                android:drawableTint="@color/colorPrimary"
+                android:hint="Email" />
+
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLoginLogin"
+                android:id="@+id/btnSignUpSignUp"
                 style="@style/style_button"
                 android:layout_marginTop="32dp"
-                android:text="Login" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSignUpLogin"
-                style="@style/style_button"
-                android:layout_marginTop="16dp"
                 android:text="SignUp" />
 
         </LinearLayout>
