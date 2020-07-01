@@ -131,7 +131,6 @@ fun login(email: String, password: String, mAuth: FirebaseAuth, callBack: AuthCa
                     callBack.onLoginFailed(it.exception!!.localizedMessage)
                 }
             }
-
     } else {
         callBack.onLoginFailed("Email And Password Must Not Be Empty!!!")
     }
@@ -140,16 +139,20 @@ fun login(email: String, password: String, mAuth: FirebaseAuth, callBack: AuthCa
 //SignUp With String Email And Password With Not Validation
 fun signUp(email: String, password: String, mAuth: FirebaseAuth, callBack: AuthCallBack) {
     if (email.isNotEmpty() && password.isNotEmpty()) {
-        mAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    callBack.onSignUpSuccess()
-                } else {
-                    callBack.onSignUpFailed(it.exception!!.localizedMessage)
+        if (isEmailValid(email)) {
+            mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        callBack.onSignUpSuccess()
+                    } else {
+                        callBack.onSignUpFailed(it.exception!!.localizedMessage)
+                    }
                 }
-            }
+        } else {
+            callBack.onSignUpFailed("Email Is Invalid!!!")
+        }
     } else {
-        callBack.onLoginFailed("Email And Password Must Not Be Empty!!!")
+        callBack.onSignUpFailed("Email And Password Must Not Be Empty!!!")
     }
 }
 
