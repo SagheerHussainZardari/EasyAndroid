@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:ignore="MissingDefaultResource">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:src="@drawable/ic_email"
+                android:tint="@color/colorPrimary" />
+
+
+            <EditText
+                android:id="@+id/et_EmailLogin"
+                style="@style/style_edittext"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="8dp"
+                android:drawableTint="@color/colorPrimary"
+                android:hint="Email" />
+
+            <EditText
+                android:id="@+id/et_PasswordLogin"
+                style="@style/style_edittext"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="8dp"
+                android:drawableTint="@color/colorPrimary"
+                android:hint="Password" />
+
+            <TextView
+                android:id="@+id/tv_ForgotPasswordLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="4dp"
+                android:text="Forgot Password?"
+                android:textColor="@color/colorPrimary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLoginLogin"
+                style="@style/style_button"
+                android:layout_marginTop="32dp"
+                android:text="Login" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSignUpLogin"
+                style="@style/style_button"
+                android:layout_marginTop="16dp"
+                android:text="SignUp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
