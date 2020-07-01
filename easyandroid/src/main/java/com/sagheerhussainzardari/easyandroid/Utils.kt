@@ -249,7 +249,9 @@ fun getDataFromFirebaseRealtimemDatabase(
     callBack: RealtimeDatabaseCallBack
 ) {
     path.addListenerForSingleValueEvent(object : ValueEventListener {
-        override fun onCancelled(error: DatabaseError) {}
+        override fun onCancelled(error: DatabaseError) {
+            callBack.onDataGetFailure("${error.message}")
+        }
 
         override fun onDataChange(snapshot: DataSnapshot) {
             callBack.onDataGetSuccess(snapshot)
