@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff">
 
 
@@ -63,6 +64,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSignUpSignUp"
                 style="@style/style_button"
+                app:cornerRadius="10dp"
                 android:layout_marginTop="32dp"
                 android:text="SignUp" />
 
