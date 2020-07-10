@@ -50,6 +50,7 @@ fun isEmailValid(email: EditText): Boolean {
     if (Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()) {
         return true
     } else {
+        //shows error on given editText
         email.error = "Enter Valid Email Address!!"
         email.requestFocus()
         return false
